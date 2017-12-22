@@ -64,8 +64,8 @@ public class NowOnCinemaFragment extends Fragment implements LoaderManager.Loade
         mSmartScrollListener = new SmartScrollListener(new SmartScrollListener.OnSmartScrollListener() {
             @Override
             public void onListEndReach() {
-                Snackbar.make(rvMovieList, "This is end!", Snackbar.LENGTH_LONG).show();
-                //PopularMovieModel.getObjInstance().loadMoreMovies(getContext());
+//                Snackbar.make(rvMovieList, "This is end!", Snackbar.LENGTH_LONG).show();
+                PopularMovieModel.getObjInstance().loadMoreMovies(getContext());
             }
         });
         rvMovieList.addOnScrollListener(mSmartScrollListener);
