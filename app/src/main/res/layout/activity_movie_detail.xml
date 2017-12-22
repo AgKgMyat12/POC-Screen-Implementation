@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:id="@+id/app_bar_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<android.support.design.widget.CollapsingToolbarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="310dp"-->
+        <!--android:background="@android:color/black"-->
+        <!--app:contentScrim="?attr/colorPrimary"-->
+        <!--app:layout_scrollFlags="scroll|enterAlways">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="310dp"
+                android:background="@color/black_full">
+
+                <ImageView
+                    android:id="@+id/background_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.45"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/thor_ragnarok_poster" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_medium_2">
+
+                    <ImageView
+                        android:id="@+id/iv_movie_poster"
+                        android:layout_width="160dp"
+                        android:layout_height="230dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/thor_ragnarok_poster" />
+
+                    <ImageView
+                        android:id="@+id/iv_zoom"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_alignBottom="@id/iv_movie_poster"
+                        android:layout_alignRight="@id/iv_movie_poster"
+                        android:alpha="0.77"
+                        android:background="@android:color/black"
+                        android:src="@drawable/ic_crop_free_24dp" />
+
+                    <include
+                        android:id="@+id/vp_rating_star"
+                        layout="@layout/view_pod_rating_star"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iv_movie_poster" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/vp_rating_star"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Released: November 2017"
+                        android:textColor="@color/white_full" />
+
+                    <TextView
+                        android:id="@+id/movie_quote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_toRightOf="@id/iv_movie_poster"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="No Hammer. No Problem."
+                        android:textColor="@color/white_full"
+                        android:textSize="@dimen/text_regular_3x" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:layout_below="@id/movie_quote"
+                        android:layout_marginLeft="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_toRightOf="@id/iv_movie_poster"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/dummy_storyline"
+                        android:textColor="@color/white_full"
+                        android:lineSpacingMultiplier="1.2"/>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/iv_heart"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:src="@drawable/heart_icon" />
+
+                <TextView
+                    android:id="@+id/tv_rating_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_medium_2"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:text="7.7"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_regular_2x"
+                    android:textStyle="bold|italic" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_movie_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_color_movie_detail"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/movie_title_bg_color"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:text="Thor: Ragnarok"
+                    android:textColor="@color/black_full"
+                    android:textSize="@dimen/text_regular_3x" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/PrimaryButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_medium_2"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="Adventure" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="15dp"
+                        android:layout_marginLeft="@dimen/margin_medium"
+                        android:layout_marginRight="@dimen/margin_medium"
+                        android:layout_marginTop="13dp"
+                        android:background="@color/white_full" />
+
+                    <TextView
+                        style="@style/PrimaryButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="Fantasy" />
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/AccentBorderButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="@dimen/margin_medium_2"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:text="2 hrs 10 mins" />
+
+                <com.example.hp.poc_screenimplementation.components.SmartRecyclerView
+                    android:id="@+id/srv_movie_trailers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium_2">
+
+                </com.example.hp.poc_screenimplementation.components.SmartRecyclerView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_review"
+                    android:textSize="@dimen/text_regular_3x"
+                    android:textColor="@color/white_full"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginLeft="@dimen/margin_medium_2"
+                    android:layout_marginTop="@dimen/margin_medium_2"/>
+
+                <TextView
+                    android:id="@+id/tv_reviewer_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harrison wrote :"
+                    android:textStyle="italic"
+                    android:textColor="@color/white_full"
+                    android:textSize="@dimen/text_regular"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_marginLeft="@dimen/margin_medium_2"/>
+
+                <TextView
+                    android:id="@+id/review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/review"
+                    android:layout_marginLeft="@dimen/margin_medium_2"
+                    android:textColor="@color/white_full"
+                    android:textSize="@dimen/text_regular"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:lineSpacingMultiplier="1.2"
+                    android:layout_marginBottom="@dimen/margin_large_2x"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium_2"
+            android:src="@drawable/ic_add_24dp"
+            android:tint="@color/white_full"
+            app:layout_anchor="@id/ll_movie_data"
+            app:layout_anchorGravity="right|top" />
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</android.support.v4.widget.NestedScrollView>

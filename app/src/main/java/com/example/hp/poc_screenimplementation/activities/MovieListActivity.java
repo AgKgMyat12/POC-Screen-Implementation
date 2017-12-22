@@ -7,18 +7,21 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.hp.poc_screenimplementation.R;
-import com.example.hp.poc_screenimplementation.adapters.MovieAdapter;
 import com.example.hp.poc_screenimplementation.adapters.TabLayoutPagerAdapter;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MovieListActivity extends AppCompatActivity {
+
+    @BindView(R.id.pager)
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class MovieListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Movie Shelf");
         setSupportActionBar(toolbar);
+        ButterKnife.bind(this,this);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null){
@@ -45,7 +49,6 @@ public class MovieListActivity extends AppCompatActivity {
         });
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
-        final ViewPager viewPager = findViewById(R.id.pager);
 
         tabLayout.addTab(tabLayout.newTab().setText("NOW ON CINEMA"));
         tabLayout.addTab(tabLayout.newTab().setText("UPCOMING"));
@@ -54,6 +57,7 @@ public class MovieListActivity extends AppCompatActivity {
 
         TabLayoutPagerAdapter pagerAdapter = new TabLayoutPagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
+        viewPager.setOffscreenPageLimit(pagerAdapter.getCount());
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

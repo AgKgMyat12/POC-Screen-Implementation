@@ -1,5 +1,7 @@
 package com.example.hp.poc_screenimplementation.events;
 
+import android.content.Context;
+
 import com.example.hp.poc_screenimplementation.data.vo.PopularMovieVO;
 
 import java.util.List;
@@ -12,10 +14,12 @@ public class PopularMoviesEvent {
     public static class PopularMoviesLoaded{
         private int pageNo;
         private List<PopularMovieVO> popularMovie;
+        private Context context;
 
-        public PopularMoviesLoaded(int pageNo, List<PopularMovieVO> popularMovie) {
+        public PopularMoviesLoaded(int pageNo, List<PopularMovieVO> popularMovie, Context context) {
             this.pageNo = pageNo;
             this.popularMovie = popularMovie;
+            this.context = context;
         }
 
         public int getPageNo() {
@@ -24,6 +28,10 @@ public class PopularMoviesEvent {
 
         public List<PopularMovieVO> getPopularMovie() {
             return popularMovie;
+        }
+
+        public Context getContext() {
+            return context;
         }
     }
 

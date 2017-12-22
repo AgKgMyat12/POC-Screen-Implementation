@@ -21,7 +21,20 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+        <activity
+            android:name=".activities.MovieDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
+        <provider
+            android:authorities="com.example.hp.poc_screenimplementation"
+            android:name=".data.persistence.PopularMovieProvider"
+            android:exported="false"
+            android:syncable="true" />
+        
     </application>
 
 </manifest>

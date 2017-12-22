@@ -4,11 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- * Created by HP on 11/10/2017.
+ * Created by HP on 12/16/2017.
  */
 
-public class MovieViewHolders extends RecyclerView.ViewHolder {
-    public MovieViewHolders(View itemView) {
+public class TrailerMovieViewHolder extends RecyclerView.ViewHolder {
+
+    public TrailerMovieViewHolder(View itemView) {
         super(itemView);
     }
 }

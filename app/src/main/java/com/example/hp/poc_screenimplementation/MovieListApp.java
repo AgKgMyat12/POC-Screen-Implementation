@@ -14,6 +14,6 @@ public class MovieListApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        PopularMovieModel.getObjInstance().startPopularMovieLoaded();
+        PopularMovieModel.getObjInstance().startPopularMovieLoaded(getApplicationContext());
     }
 }

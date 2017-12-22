@@ -107,7 +107,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="@dimen/margin_medium"
             android:layout_marginEnd="@dimen/margin_medium"
-            android:background="@drawable/rectangle"
+            android:background="@drawable/primary_rectangle"
             android:clickable="true"
             android:foreground="@drawable/bg_ripple"
             android:gravity="center"

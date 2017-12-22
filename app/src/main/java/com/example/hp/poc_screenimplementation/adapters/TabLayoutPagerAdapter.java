@@ -31,7 +31,7 @@ public class TabLayoutPagerAdapter extends FragmentStatePagerAdapter {
                 return  upComingFragment;
             case 2:
                 MostPopularFragment mostPopularFragment = new MostPopularFragment();
-                return  mostPopularFragment;
+                return mostPopularFragment;
             default:
                 return null;
         }
@@ -41,4 +41,5 @@ public class TabLayoutPagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return mNumOfTabs;
     }
+
 }

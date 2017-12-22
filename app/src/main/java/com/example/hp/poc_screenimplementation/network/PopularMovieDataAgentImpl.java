@@ -1,5 +1,7 @@
 package com.example.hp.poc_screenimplementation.network;
 
+import android.content.Context;
+
 import com.example.hp.poc_screenimplementation.events.PopularMoviesEvent;
 import com.example.hp.poc_screenimplementation.network.response.GetPopularMovieResponse;
 import com.example.hp.poc_screenimplementation.utils.AppConstants;
@@ -50,7 +52,7 @@ public class PopularMovieDataAgentImpl implements PopularMovieDataAgent {
     }
 
     @Override
-    public void loadPopularMovie(String accessToken, int page) {
+    public void loadPopularMovie(String accessToken, int page, final Context context) {
         Call<GetPopularMovieResponse> loadPopularMovieCall = theAPI.loadPopularMovie(accessToken, page);
         loadPopularMovieCall.enqueue(new Callback<GetPopularMovieResponse>() {
             @Override
@@ -58,7 +60,7 @@ public class PopularMovieDataAgentImpl implements PopularMovieDataAgent {
                 GetPopularMovieResponse getPopularMovieResponse = response.body();
                 if (getPopularMovieResponse != null && getPopularMovieResponse.getPopularMovies().size()>0){
                     PopularMoviesEvent.PopularMoviesLoaded popularMoviesLoaded = new PopularMoviesEvent.PopularMoviesLoaded(getPopularMovieResponse.getPage(),
-                            getPopularMovieResponse.getPopularMovies());
+                            getPopularMovieResponse.getPopularMovies(), context);
                     EventBus.getDefault().post(popularMoviesLoaded);
                 }
                 else {

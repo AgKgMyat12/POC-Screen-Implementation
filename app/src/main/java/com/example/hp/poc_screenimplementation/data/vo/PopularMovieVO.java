@@ -1,5 +1,9 @@
 package com.example.hp.poc_screenimplementation.data.vo;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+
+import com.example.hp.poc_screenimplementation.data.persistence.PopularMovieContract;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -105,5 +109,44 @@ public class PopularMovieVO {
 
     public String getReleaseDate() {
         return releaseDate;
+    }
+
+    public ContentValues parseToContentValues(){
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_VOTE_COUNT, voteCount);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_MOVIE_ID, id);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_VIDEO, video);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_VOTE_AVERAGE, voteAverage);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_TITLE, title);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_POPULARITY, popularity);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_POSTER_PATH, posterPath);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_ORIGINAL_LANGUAGE, originalLanguage);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_ORIGINAL_TITLE, originalTitle);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_BACK_DROP_PATH, backdropPath);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_ADULT, adult);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_OVERVIEW, overview);
+        contentValues.put(PopularMovieContract.PopularMovieEntry.COLUMN_RELEASE_DATE, releaseDate);
+
+        return contentValues;
+    }
+
+    public static PopularMovieVO parseFromCursor(Cursor cursor){
+        PopularMovieVO popularMovie = new PopularMovieVO();
+        popularMovie.voteCount = cursor.getInt(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_VOTE_COUNT));
+        popularMovie.id = cursor.getInt(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_MOVIE_ID));
+        //popularMovie.video = cursor.getInt(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_VIDEO));
+        popularMovie.voteAverage = cursor.getInt(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_VOTE_AVERAGE));
+        popularMovie.title = cursor.getString(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_TITLE));
+        popularMovie.popularity = cursor.getDouble(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_POPULARITY));
+        popularMovie.posterPath = cursor.getString(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_POSTER_PATH));
+        popularMovie.originalLanguage = cursor.getString(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_ORIGINAL_LANGUAGE));
+        popularMovie.originalTitle = cursor.getString(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_ORIGINAL_TITLE));
+        popularMovie.backdropPath = cursor.getString(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_BACK_DROP_PATH));
+        //popularMovie.adult = cursor.getInt(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_ADULT));
+        popularMovie.overview = cursor.getString(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_OVERVIEW));
+        popularMovie.releaseDate = cursor.getString(cursor.getColumnIndex(PopularMovieContract.PopularMovieEntry.COLUMN_RELEASE_DATE));
+
+        return popularMovie;
     }
 }
